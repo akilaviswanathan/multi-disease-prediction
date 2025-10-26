@@ -111,7 +111,7 @@ function App() {
         formData[feature.name] === '' || isNaN(formData[feature.name]) ? 0 : formData[feature.name]
       );
       try {
-        const response = await fetch('http://localhost:5000/predict', {
+        const response = await fetch('https://multi-disease-prediction-soaq.onrender.com/predict', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ disease: selectedDisease, data: dataArray })
@@ -131,7 +131,7 @@ function App() {
         multiData[disease] = dataArray;
       });
       try {
-        const response = await fetch('http://localhost:5000/multi-predict', {
+        const response = await fetch('https://multi-disease-prediction-soaq.onrender.com/multi-predict', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ data: multiData })
