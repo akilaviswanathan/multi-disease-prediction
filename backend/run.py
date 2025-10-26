@@ -5,4 +5,5 @@ app = create_app()
 
 if __name__ == '__main__':
     port = int(os.getenv("PORT", 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    debug = os.getenv("FLASK_DEBUG", "False").lower() == "true"  # Set FLASK_DEBUG=true locally if needed
+    app.run(host='0.0.0.0', port=port, debug=debug)
